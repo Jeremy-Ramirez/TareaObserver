@@ -41,16 +41,22 @@ public class Ventana extends Observable {
 		
 		colorAzul.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent colorAzul) {
-				root.setBackground(new Background(new BackgroundFill(Color.BLUE,CornerRadii.EMPTY, Insets.EMPTY)));			}
+				root.setBackground(new Background(new BackgroundFill(Color.BLUE,CornerRadii.EMPTY, Insets.EMPTY)));			
+				notifyObservers();
+			}
 		});
 		
 		colorRojo.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent colorRojo) {
-				root.setBackground(new Background(new BackgroundFill(Color.RED,CornerRadii.EMPTY, Insets.EMPTY)));			}
+				root.setBackground(new Background(new BackgroundFill(Color.RED,CornerRadii.EMPTY, Insets.EMPTY)));			
+				notifyObservers();
+			}
 		});
 		colorVerde.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent colorVerde) {
-				root.setBackground(new Background(new BackgroundFill(Color.GREEN,CornerRadii.EMPTY, Insets.EMPTY)));			}
+				root.setBackground(new Background(new BackgroundFill(Color.GREEN,CornerRadii.EMPTY, Insets.EMPTY)));			
+				notifyObservers();
+			}
 		});
 		
 		areaBotones = new VBox();
