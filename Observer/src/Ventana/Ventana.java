@@ -2,6 +2,9 @@ package Ventana;
 
 
 
+import java.util.Observable;
+import java.util.Observer;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -15,12 +18,13 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
-public class Ventana {
+public class Ventana extends Observable {
 	private BorderPane root;
 	private Button colorAzul;
 	private Button colorRojo;
 	private Button colorVerde;
 	private VBox areaBotones;
+	private Observer observer;
 	
 	public Ventana() {
 		Inicializar();
@@ -58,5 +62,16 @@ public class Ventana {
 	public BorderPane getRoot() {
         return root;
     }
+	@Override
+	public void addObserver(Observer observer) {
+		this.observer = observer;
+	}
 	
+	@Override
+	public void notifyObservers() {
+		if(observer != null) {
+			observer.update(this, "Cambio de color");
+		}
+	}
+
 }
