@@ -18,13 +18,13 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
-public class Ventana extends Observable {
+public class Ventana  {
 	private BorderPane root;
 	private Button colorAzul;
 	private Button colorRojo;
 	private Button colorVerde;
 	private VBox areaBotones;
-	private Observer observer;
+	
 	
 	public Ventana() {
 		Inicializar();
@@ -42,20 +42,20 @@ public class Ventana extends Observable {
 		colorAzul.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent colorAzul) {
 				root.setBackground(new Background(new BackgroundFill(Color.BLUE,CornerRadii.EMPTY, Insets.EMPTY)));			
-				notifyObservers("Azul");
+				
 			}
 		});
 		
 		colorRojo.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent colorRojo) {
 				root.setBackground(new Background(new BackgroundFill(Color.RED,CornerRadii.EMPTY, Insets.EMPTY)));			
-				notifyObservers("Rojo");
+			
 			}
 		});
 		colorVerde.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent colorVerde) {
 				root.setBackground(new Background(new BackgroundFill(Color.GREEN,CornerRadii.EMPTY, Insets.EMPTY)));			
-				notifyObservers("Verde");
+				
 			}
 		});
 		
@@ -68,15 +68,5 @@ public class Ventana extends Observable {
 	public BorderPane getRoot() {
         return root;
     }
-	@Override
-	public void addObserver(Observer observer) {
-		this.observer = observer;
-	}
-	
-	public void notifyObservers(String c) {
-		if(observer != null) {
-			observer.update(this,"color"+c);
-		}
-	}
 
 }

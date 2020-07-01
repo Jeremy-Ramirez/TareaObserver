@@ -17,7 +17,8 @@ public aspect Aspecto {
 	    	
 	    	try {
 	    		PrintWriter f = new PrintWriter(new FileWriter(file, true));
-				f.println("Se realizó un cambio de color");
+				f.println("Se ha realizado un cambio");
+				System.out.println("Se ha cambiado de color");
 				f.close();
 			} catch (IOException e1) {
 				e1.printStackTrace();
