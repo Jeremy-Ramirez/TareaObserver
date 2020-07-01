@@ -42,20 +42,20 @@ public class Ventana extends Observable {
 		colorAzul.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent colorAzul) {
 				root.setBackground(new Background(new BackgroundFill(Color.BLUE,CornerRadii.EMPTY, Insets.EMPTY)));			
-				notifyObservers();
+				notifyObservers("Azul");
 			}
 		});
 		
 		colorRojo.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent colorRojo) {
 				root.setBackground(new Background(new BackgroundFill(Color.RED,CornerRadii.EMPTY, Insets.EMPTY)));			
-				notifyObservers();
+				notifyObservers("Rojo");
 			}
 		});
 		colorVerde.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent colorVerde) {
 				root.setBackground(new Background(new BackgroundFill(Color.GREEN,CornerRadii.EMPTY, Insets.EMPTY)));			
-				notifyObservers();
+				notifyObservers("Verde");
 			}
 		});
 		
@@ -73,10 +73,9 @@ public class Ventana extends Observable {
 		this.observer = observer;
 	}
 	
-	@Override
-	public void notifyObservers() {
+	public void notifyObservers(String c) {
 		if(observer != null) {
-			observer.update(this, "Cambio de color");
+			observer.update(this,"color"+c);
 		}
 	}
 
